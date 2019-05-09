@@ -1,0 +1,16 @@
+D:\GIT\WebShop\DBRepository\bin\Debug\DBRepository.dll.config
+D:\GIT\WebShop\DBRepository\bin\Debug\DBRepository.dll
+D:\GIT\WebShop\DBRepository\bin\Debug\DBRepository.pdb
+D:\GIT\WebShop\DBRepository\bin\Debug\EntityFramework.dll
+D:\GIT\WebShop\DBRepository\bin\Debug\EntityFramework.SqlServer.dll
+D:\GIT\WebShop\DBRepository\bin\Debug\EntityFramework.xml
+D:\GIT\WebShop\DBRepository\bin\Debug\EntityFramework.SqlServer.xml
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.csproj.CoreCompileInputs.cache
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.csproj.CopyComplete
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.dll
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.pdb
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.Migrations.InitialCreate.resources
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.csproj.GenerateResource.cache
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.csprojResolveAssemblyReference.cache
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.Migrations.addProduct.resources
+D:\GIT\WebShop\DBRepository\obj\Debug\DBRepository.Migrations.ProductAddCategory.resources

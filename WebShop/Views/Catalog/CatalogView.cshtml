@@ -1,0 +1,13 @@
+﻿@model WebShop.Models.CatalogAllCategoriesModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+@foreach (var i in Model.Categories)
+{
+<ul>
+    <li><a href="/Catalog/Category?CategoryName=@i">@i</a></li>
+</ul>
+}
+
