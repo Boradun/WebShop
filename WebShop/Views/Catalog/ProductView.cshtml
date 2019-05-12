@@ -4,10 +4,21 @@
     ViewBag.Title = "View";
 }
 
+@if (Model != null)
+{
+    using (Html.BeginForm("Buy", "Order", FormMethod.Post))
+    {
 <ul>
     <li>@Model.ProductName</li>
+    @Html.HiddenFor(x => x.ProductName)
     <li>@Model.ProductCategory</li>
     <li>@Model.ProductPrice</li>
+    @Html.HiddenFor(x => x.ProductPrice)
     <li>@Model.ProductDescription</li>
+    <li>@Model.ProductQuantity</li>
+    <li>@Html.TextBoxFor(x => x.ProductQuantity)</li>
 </ul>
+        <input type="submit" />
+    }
+}
 

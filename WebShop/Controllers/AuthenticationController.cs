@@ -34,7 +34,7 @@ namespace WebShop.Controllers
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(model.Name, true);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("AddOrderList", "Order");
                 }
                 else
                 {
@@ -67,7 +67,7 @@ namespace WebShop.Controllers
                         if (user != null)
                         {
                             FormsAuthentication.SetAuthCookie(model.Name, true);
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("AddOrderList", "Order");
                         }
                     }
                     else

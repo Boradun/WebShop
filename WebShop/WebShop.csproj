@@ -151,11 +151,13 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CatalogAllCategoriesModel.cs" />
     <Compile Include="Models\CatalogOneCategoryModel.cs" />
+    <Compile Include="Models\OrderListModel.cs" />
     <Compile Include="Models\UserAuthModel.cs" />
     <Compile Include="Models\UserRegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,6 +204,7 @@
     <Content Include="Views\Catalog\CatalogView.cshtml" />
     <Content Include="Views\Catalog\Category.cshtml" />
     <Content Include="Views\Catalog\ProductView.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

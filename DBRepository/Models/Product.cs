@@ -13,5 +13,6 @@ namespace DBRepository.Models
         public decimal ProductPrice { get; set; }
         public string ProductCategory { get; set; }
         public string ProductDescription { get; set; }
+        public int ProductQuantity { get; set; }
     }
 }

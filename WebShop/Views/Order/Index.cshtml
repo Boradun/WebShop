@@ -1,0 +1,15 @@
+﻿@model WebShop.Models.OrderListModel
+
+@{
+    ViewBag.Title = "Index";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    foreach (var i in Model.OrderedProducts)
+    {
+        <li>@i.ProductName</li>
+        <li>@i.ProductPrice</li>
+        <li>@i.ProductQuantity</li>
+    }
+}
+
