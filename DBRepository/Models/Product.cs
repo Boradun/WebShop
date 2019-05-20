@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DBRepository.Models
 {
-    public class Product
+    public class Product : ItemBase
     {
-        public int ProductId { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public string ProductCategory { get; set; }
