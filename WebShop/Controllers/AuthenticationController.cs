@@ -7,12 +7,19 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebShop.Models;
+using WebShop.Services;
 
 namespace WebShop.Controllers
 {
     public class AuthenticationController : Controller
     {
-        // GET: Authentication
+        AuthenticationService _authenticationService;
+
+        public AuthenticationController()
+        {
+            _authenticationService = new AuthenticationService();
+        }
+
         public ActionResult Login()
         {
             return View();
@@ -24,24 +31,18 @@ namespace WebShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                // поиск пользователя в бд
-                User user = null;
-                using (WebShopDbContext db = new WebShopDbContext())
-                {
-                    user = db.GetUser(model.Name, model.Password);
-
-                }
-                if (user != null)
-                {
-                    FormsAuthentication.SetAuthCookie(model.Name, true);
-                    return RedirectToAction("AddOrderList", "Order");
-                }
-                else
+                if (_authenticationService.IsUserExist(model.Name))
                 {
                     ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
+                    return View(model);
+                }
+                var user = _authenticationService.GetUserByName(model.Name);
+                if (user.UserPassword == model.Password)
+                {
+                    FormsAuthentication.SetAuthCookie(model.Name, true);
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
             return View(model);
         }
 
@@ -56,28 +57,18 @@ namespace WebShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = null;
-                using (WebShopDbContext db = new WebShopDbContext())
+                if (_authenticationService.IsUserExist(model.Name))
                 {
-                    if (!db.IsUserExist(model.Name))
-                    {
-                        // создаем нового пользователя
-                        user = db.AddUser(model.Name, model.Password, model.Email);
-                        // если пользователь удачно добавлен в бд
-                        if (user != null)
-                        {
-                            FormsAuthentication.SetAuthCookie(model.Name, true);
-                            return RedirectToAction("AddOrderList", "Order");
-                        }
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Пользователь с таким логином уже существует");
-                    }
+                    ModelState.AddModelError("", "Пользователь с таким логином уже существует");
+                    return View(model);
                 }
+                _authenticationService.Register(model);
+                FormsAuthentication.SetAuthCookie(model.Name, true);
+                return RedirectToAction("AddOrderList", "Order");
             }
             return View(model);
         }
+
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();

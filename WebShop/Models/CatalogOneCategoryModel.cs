@@ -10,10 +10,5 @@ namespace WebShop.Models
     {
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
-
-        public static implicit operator CatalogOneCategoryModel(Product product)
-        {
-            return new CatalogOneCategoryModel() { ProductName = product.ProductName, ProductPrice = product.ProductPrice };
-        }
     }
 }

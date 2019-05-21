@@ -6,15 +6,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebShop.Models;
+using WebShop.Services;
 
 namespace WebShop.Controllers
 {
     public class CatalogController : Controller
     {
-        // GET: Catalog
+        CatalogService _catalogService;
+        public CatalogController()
+        {
+            _catalogService = new CatalogService();
+        }
+
         public ActionResult CatalogView()
         {
-            return View(new CatalogAllCategoriesModel());
+            return View(new CatalogAllCategoriesModel(_catalogService));
         }
 
         public ActionResult Category(string CategoryName)

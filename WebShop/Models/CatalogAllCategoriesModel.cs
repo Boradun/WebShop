@@ -4,17 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebShop.Services;
 
 namespace WebShop.Models
 {
     public class CatalogAllCategoriesModel
     {
-        public CatalogAllCategoriesModel()
+        public CatalogAllCategoriesModel(CatalogService service)
         {
-            using (WebShopDbContext db = new WebShopDbContext())
-            {
-                Categories = db.GetAllCategories();
-            }
+            Categories = service.GetAllCategories();
         }
         public List<string> Categories { get; set; }
     }
