@@ -21,9 +21,9 @@ namespace WebShop.Services
             var users = _shopRepository.GetAll();
             if (users.Find(x => x.UserName == Name) != null)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public void Register(UserRegisterModel model)

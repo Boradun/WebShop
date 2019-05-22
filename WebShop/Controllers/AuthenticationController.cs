@@ -31,7 +31,7 @@ namespace WebShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_authenticationService.IsUserExist(model.Name))
+                if (!_authenticationService.IsUserExist(model.Name))
                 {
                     ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
                     return View(model);
@@ -40,7 +40,7 @@ namespace WebShop.Controllers
                 if (user.UserPassword == model.Password)
                 {
                     FormsAuthentication.SetAuthCookie(model.Name, true);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("AddOrderList", "Order");
                 }
             }
             return View(model);

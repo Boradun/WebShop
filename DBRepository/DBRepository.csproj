@@ -49,21 +49,9 @@
   <ItemGroup>
     <Compile Include="Contexts\WebShopDbContext.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Migrations\201905081424079_InitialCreate.cs" />
-    <Compile Include="Migrations\201905081424079_InitialCreate.Designer.cs">
-      <DependentUpon>201905081424079_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905091009385_addProduct.cs" />
-    <Compile Include="Migrations\201905091009385_addProduct.Designer.cs">
-      <DependentUpon>201905091009385_addProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905091014046_ProductAddCategory.cs" />
-    <Compile Include="Migrations\201905091014046_ProductAddCategory.Designer.cs">
-      <DependentUpon>201905091014046_ProductAddCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905121019094_ProductQuantityAddedToModel.cs" />
-    <Compile Include="Migrations\201905121019094_ProductQuantityAddedToModel.Designer.cs">
-      <DependentUpon>201905121019094_ProductQuantityAddedToModel.cs</DependentUpon>
+    <Compile Include="Migrations\201905221805306_Generic.cs" />
+    <Compile Include="Migrations\201905221805306_Generic.Designer.cs">
+      <DependentUpon>201905221805306_Generic.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ItemBase.cs" />
@@ -77,17 +65,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905081424079_InitialCreate.resx">
-      <DependentUpon>201905081424079_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905091009385_addProduct.resx">
-      <DependentUpon>201905091009385_addProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905091014046_ProductAddCategory.resx">
-      <DependentUpon>201905091014046_ProductAddCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905121019094_ProductQuantityAddedToModel.resx">
-      <DependentUpon>201905121019094_ProductQuantityAddedToModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905221805306_Generic.resx">
+      <DependentUpon>201905221805306_Generic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

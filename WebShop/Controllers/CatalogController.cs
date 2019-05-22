@@ -20,32 +20,19 @@ namespace WebShop.Controllers
 
         public ActionResult CatalogView()
         {
-            return View(new CatalogAllCategoriesModel(_catalogService));
+            return View(new CatalogAllCategoriesModel()
+            { Categories = _catalogService.GetAllCategories() });
         }
 
-        public ActionResult Category(string CategoryName)
+        public ActionResult CategoryView(string CategoryName)
         {
-            List<Product> list;
-            using (WebShopDbContext db = new WebShopDbContext())
-            {
-                list = db.GetProductsByCategory(CategoryName);
-            }
-            List<CatalogOneCategoryModel> viewList = new List<CatalogOneCategoryModel>();
-            foreach (var i in list)
-            {
-                viewList.Add(i);
-            }
-
+            List<CatalogOneCategoryModel> viewList = _catalogService.GetOneCategory(CategoryName);
             return View(viewList);
         }
 
         public ActionResult ProductView(string ProductName)
         {
-            Product product;
-            using (WebShopDbContext db = new WebShopDbContext())
-            {
-                product = db.GetProduct(ProductName);
-            }
+            Product product = _catalogService.GetProductByName(ProductName);
             return View(product);
         }
     }

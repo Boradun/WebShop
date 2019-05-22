@@ -10,7 +10,7 @@ namespace DBRepository.Contexts
 {
     class WebShopDbContext : DbContext
     {
-        internal WebShopDbContext() : base("ShopDb")
+        public WebShopDbContext() : base("ShopDb")
         {
         }
         internal DbSet<User> Users { get; set; }

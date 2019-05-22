@@ -10,7 +10,6 @@ namespace DBRepository.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DBRepository.Contexts.UserContext";
         }
 
         protected override void Seed(DBRepository.Contexts.WebShopDbContext context)

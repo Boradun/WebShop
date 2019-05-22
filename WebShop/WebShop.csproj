@@ -204,7 +204,7 @@
     <Content Include="Views\Authentication\Register.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Catalog\CatalogView.cshtml" />
-    <Content Include="Views\Catalog\Category.cshtml" />
+    <Content Include="Views\Catalog\CategoryView.cshtml" />
     <Content Include="Views\Catalog\ProductView.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
