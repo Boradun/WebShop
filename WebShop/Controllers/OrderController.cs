@@ -5,12 +5,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebShop.Models;
+using WebShop.Services;
 
 namespace WebShop.Controllers
 {
     public class OrderController : Controller
     {
         public static List<OrderListModel> OrdersList { get; set; } = new List<OrderListModel>();
+        CatalogService _catalogService;
+
+        public OrderController()
+        {
+            _catalogService = new CatalogService();
+        }
         // GET: Order
         public ActionResult Index()
         {
@@ -32,6 +39,7 @@ namespace WebShop.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                _catalogService.BuyProduct(product);
                 OrderListModel order = OrdersList.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
                 order.OrderedProducts.Add(product);
                 return RedirectToAction("CatalogView", "Catalog");

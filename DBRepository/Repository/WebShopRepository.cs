@@ -47,7 +47,6 @@ namespace DBRepository.Repository
 
         public void Update(TEntity item)
         {
-            _dbSet.Attach(item);
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
         }

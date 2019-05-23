@@ -3,13 +3,17 @@
 @{
     ViewBag.Title = "Index";
 }
+
+Ваши заказы:
 @if (User.Identity.IsAuthenticated)
 {
     foreach (var i in Model.OrderedProducts)
     {
-        <li>@i.ProductName</li>
-        <li>@i.ProductPrice</li>
-        <li>@i.ProductQuantity</li>
+        <ul>
+            <li>Название продукта: @i.ProductName</li>
+            <li>Цена: @i.ProductPrice</li>
+            <li>Заказано: @i.ProductQuantity</li>
+        </ul>
     }
 }
 

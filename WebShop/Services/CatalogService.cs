@@ -27,12 +27,12 @@ namespace WebShop.Services
             List<CatalogOneCategoryModel> result = new List<CatalogOneCategoryModel>();
             foreach (var i in list)
             {
-                if(i.ProductCategory.Equals(Name))
-                result.Add(new CatalogOneCategoryModel()
-                {
-                    ProductName = i.ProductName,
-                    ProductPrice = i.ProductPrice
-                });
+                if (i.ProductCategory.Equals(Name))
+                    result.Add(new CatalogOneCategoryModel()
+                    {
+                        ProductName = i.ProductName,
+                        ProductPrice = i.ProductPrice
+                    });
             }
             return result;
         }
@@ -40,6 +40,17 @@ namespace WebShop.Services
         public Product GetProductByName(string Name)
         {
             return _shopRepository.GetAll().Where(x => x.ProductName == Name).FirstOrDefault();
+        }
+
+        public void BuyProduct(Product productToUpdate)
+        {
+            var _products = _shopRepository.GetAll();
+            var _item = _products.Where(x => x.ProductName == productToUpdate.ProductName).FirstOrDefault();
+            if (_item != null)
+            {
+                _item.ProductQuantity -= productToUpdate.ProductQuantity;
+                _shopRepository.Update(_item);
+            }
         }
     }
 }

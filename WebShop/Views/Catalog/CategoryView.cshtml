@@ -6,8 +6,8 @@
 @foreach (var i in Model)
 {
 <ul>
-    <li><a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a></li>
-    <li>@i.ProductPrice</li>
+    <li>Название: <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a></li>
+    <li>Цена за еденицу: @i.ProductPrice</li>
 </ul>
 }
 
