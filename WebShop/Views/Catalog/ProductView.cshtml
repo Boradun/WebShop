@@ -8,29 +8,31 @@
 {
     using (Html.BeginForm("Buy", "Order", FormMethod.Post))
     {
-<ul>
-    <li>Название: @Model.ProductName</li>
-    @Html.HiddenFor(x => x.ProductName)
-    <li>Категория товар: @Model.ProductCategory</li>
-    @Html.HiddenFor(x => x.ProductCategory)
-    <li>Цена: @Model.ProductPrice</li>
-    @Html.HiddenFor(x => x.ProductPrice)
-    <li>Описание: @Model.ProductDescription</li>
-    @Html.HiddenFor(x => x.ProductDescription)
-    <li>
-        Количество:
-        @if (Model.ProductQuantity > 0)
-        {
-            @Model.ProductQuantity
-        }
-        else
-        {
-            <div> Под Заказ </div>
-        }
-    </li>
-    <li>Количество в заказе @Html.TextBoxFor(x => x.ProductQuantity) <input type="submit" value="Заказать" /></li>
-</ul>
-        
+        <div>
+            <img src="~/fonts/@Model.ProductImage" height="200" width="200" />
+            <ul>
+                <li>Название: @Model.ProductName</li>
+                @Html.HiddenFor(x => x.ProductName)
+                <li>Категория товар: @Model.ProductCategory</li>
+                @Html.HiddenFor(x => x.ProductCategory)
+                <li>Цена: @Model.ProductPrice</li>
+                @Html.HiddenFor(x => x.ProductPrice)
+                <li>Описание: @Model.ProductDescription</li>
+                @Html.HiddenFor(x => x.ProductDescription)
+                <li>
+                    Количество:
+                    @if (Model.ProductQuantity > 0)
+                    {
+                        @Model.ProductQuantity
+                    }
+                    else
+                    {
+                        <div> Под Заказ </div>
+                    }
+                </li>
+                <li>Количество в заказе @Html.TextBoxFor(x => x.ProductQuantity, new { @Value = "0" }) <input type="submit" value="Заказать" /></li>
+            </ul>
+        </div>
     }
 }
 

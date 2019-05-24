@@ -2,23 +2,27 @@
     ViewBag.Title = "Home Page";
 }
 <style>
-    body {
-        position: fixed;
-        top: 0px;
-        right: 0px;
+    #menu {
+        position: absolute;
+        top: 100px;
+        right: 20%;
     }
 </style>
 @if (User.Identity.IsAuthenticated)
 {
     <body>
-        @User.Identity.Name
-        @Html.ActionLink("Выйти", "LogOff", "Authentication")
+        <div id="menu">
+            @User.Identity.Name
+            @Html.ActionLink("Выйти", "LogOff", "Authentication")
+        </div>
     </body>
 }
 else
 {
     <body>
-        @Html.ActionLink("Зарегестрироваться", "Register", "Authentication")
-        @Html.ActionLink("Войти", "Login", "Authentication")
+        <div id="menu">
+            @Html.ActionLink("Зарегестрироваться", "Register", "Authentication")
+            @Html.ActionLink("Войти", "Login", "Authentication")
+        </div>
     </body>
 }

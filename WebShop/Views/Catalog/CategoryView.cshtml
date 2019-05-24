@@ -5,10 +5,13 @@
 
 @foreach (var i in Model)
 {
-<ul>
-    <li>Название: <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a></li>
-    <li>Цена за еденицу: @i.ProductPrice</li>
-</ul>
+    <div>
+        <img src="~/fonts/@i.ProductImage" height="150" width="150" />
+        <ul>
+            <li>Название: <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a></li>
+            <li>Цена за еденицу: @i.ProductPrice</li>
+        </ul>
+    </div>
 }
 
 <h2>Category</h2>

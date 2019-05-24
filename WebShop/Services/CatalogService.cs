@@ -30,6 +30,7 @@ namespace WebShop.Services
                 if (i.ProductCategory.Equals(Name))
                     result.Add(new CatalogOneCategoryModel()
                     {
+                        ProductImage=i.ProductImage,
                         ProductName = i.ProductName,
                         ProductPrice = i.ProductPrice
                     });
