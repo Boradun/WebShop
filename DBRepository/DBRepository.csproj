@@ -53,9 +53,15 @@
     <Compile Include="Migrations\201905221805306_Generic.Designer.cs">
       <DependentUpon>201905221805306_Generic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905240711084_ListOfOrder.cs" />
+    <Compile Include="Migrations\201905240711084_ListOfOrder.Designer.cs">
+      <DependentUpon>201905240711084_ListOfOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ItemBase.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductOrderList.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\WebShopRepository.cs" />
@@ -67,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905221805306_Generic.resx">
       <DependentUpon>201905221805306_Generic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905240711084_ListOfOrder.resx">
+      <DependentUpon>201905240711084_ListOfOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

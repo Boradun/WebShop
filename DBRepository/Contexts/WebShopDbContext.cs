@@ -15,5 +15,7 @@ namespace DBRepository.Contexts
         }
         internal DbSet<User> Users { get; set; }
         internal DbSet<Product> Products { get; set; }
+        internal DbSet<Order> Orders { get; set; }
+        internal DbSet<ProductOrderList> productOrderLists { get; set; }
     }
 }
