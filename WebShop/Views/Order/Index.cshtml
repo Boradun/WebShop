@@ -5,15 +5,23 @@
 }
 
 Ваши заказы:
-@if (User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated && Model != null)
 {
-    foreach (var i in Model.OrderedProducts)
+    using (Html.BeginForm("ApplyOrder", "Order", FormMethod.Post))
     {
-        <ul>
-            <li>Название продукта: @i.ProductName</li>
-            <li>Цена: @i.ProductPrice</li>
-            <li>Заказано: @i.ProductQuantity</li>
-        </ul>
+        foreach (var i in Model.OrderedProducts)
+        {
+            <ul>
+                <li>Название продукта: @i.ProductName</li>
+                <li>Цена: @i.ProductPrice</li>
+                <li>Заказано: @i.ProductQuantity</li>
+            </ul>
+        }
+        <input type="submit" value="Подтвердить заказ" />
     }
+}
+else
+{
+    <div> пока заказов нет</div>
 }
 

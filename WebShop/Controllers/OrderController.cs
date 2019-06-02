@@ -28,10 +28,10 @@ namespace WebShop.Controllers
             return View();
         }
 
-        public ActionResult AddOrderList()
+        [HttpPost]
+        public ActionResult Index(OrderListModel model)
         {
-            OrdersList.Add(new OrderListModel() { UserName = User.Identity.Name,OrderedProducts=new List<Product>() });
-            return RedirectToAction("Index", "Home");
+            return null;
         }
 
         [HttpPost]
@@ -39,12 +39,20 @@ namespace WebShop.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                if (OrdersList.Find(x => x.UserName == User.Identity.Name) == null)
+                {
+                    OrdersList.Add(new OrderListModel()
+                    {
+                        UserName = User.Identity.Name,
+                        OrderedProducts = new List<Product>()
+                    });
+                }
                 _catalogService.BuyProduct(product);
                 OrderListModel order = OrdersList.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
                 order.OrderedProducts.Add(product);
                 return RedirectToAction("CatalogView", "Catalog");
             }
-            return RedirectToAction("Login","Authentication");
+            return RedirectToAction("Login", "Authentication");
         }
     }
 }

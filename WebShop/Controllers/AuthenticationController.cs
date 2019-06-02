@@ -40,7 +40,7 @@ namespace WebShop.Controllers
                 if (user.UserPassword == model.Password)
                 {
                     FormsAuthentication.SetAuthCookie(model.Name, true);
-                    return RedirectToAction("AddOrderList", "Order");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View(model);
@@ -64,7 +64,7 @@ namespace WebShop.Controllers
                 }
                 _authenticationService.Register(model);
                 FormsAuthentication.SetAuthCookie(model.Name, true);
-                return RedirectToAction("AddOrderList", "Order");
+                return RedirectToAction("Index", "Home");
             }
             return View(model);
         }
