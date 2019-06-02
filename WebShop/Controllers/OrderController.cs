@@ -13,10 +13,12 @@ namespace WebShop.Controllers
     {
         public static List<OrderListModel> OrdersList { get; set; } = new List<OrderListModel>();
         CatalogService _catalogService;
+        OrderService _orderService;
 
         public OrderController()
         {
             _catalogService = new CatalogService();
+            _orderService = new OrderService();
         }
         // GET: Order
         public ActionResult Index()
@@ -53,6 +55,13 @@ namespace WebShop.Controllers
                 return RedirectToAction("CatalogView", "Catalog");
             }
             return RedirectToAction("Login", "Authentication");
+        }
+
+        [HttpPost]
+        public ActionResult ApplyOrder()
+        {
+            _orderService.ApplyOrder(OrdersList.Find(x => x.UserName == User.Identity.Name));
+            return RedirectToAction("Index","Home");
         }
     }
 }
