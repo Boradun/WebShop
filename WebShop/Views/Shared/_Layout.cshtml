@@ -8,10 +8,9 @@
     @Styles.Render("~/Content/css")
     <style type="text/css">
         #botom {
-
-            position:absolute;
-            bottom:10px;
-            left:50%;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
         }
     </style>
 </head>
@@ -33,6 +32,13 @@
                     <li>@Html.ActionLink("О программе", "About", "Home")</li>
                     <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Корзина", "Index", "Order")</li>
+                    <li>
+                        @using (Html.BeginForm("Search", "Catalog", FormMethod.Post))
+                        {
+                            <input type="search" name="value" placeholder="поиск" />
+                            <input type="submit" value="поиск" />
+                        }
+                    </li>
                 </ul>
             </div>
         </div>
@@ -43,7 +49,7 @@
 
 
     </div>
-    <div id="botom" >
+    <div id="botom">
         <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
     </div>
     @RenderSection("scripts", required: false)

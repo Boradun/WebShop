@@ -13,6 +13,7 @@ namespace WebShop.Controllers
     public class CatalogController : Controller
     {
         CatalogService _catalogService;
+
         public CatalogController()
         {
             _catalogService = new CatalogService();
@@ -34,6 +35,12 @@ namespace WebShop.Controllers
         {
             Product product = _catalogService.GetProductByName(ProductName);
             return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult Search(string value)
+        {
+            return View(_catalogService.Search(value));
         }
     }
 }

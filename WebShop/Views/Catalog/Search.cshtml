@@ -1,0 +1,14 @@
+﻿@model List<DBRepository.Models.Product>
+@{
+    ViewBag.Title = "Search";
+}
+
+<div>
+    @foreach (var i in Model)
+    {
+        <img src="~/fonts/@i.ProductImage" height="150" width="150" />
+        <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a>
+        <p>Цена: @i.ProductPrice </p>
+    }
+</div>
+

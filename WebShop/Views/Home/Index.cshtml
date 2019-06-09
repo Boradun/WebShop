@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<DBRepository.Models.Product>
+@{
     ViewBag.Title = "Home Page";
 }
 <style>
@@ -25,4 +26,12 @@ else
             @Html.ActionLink("Войти", "Login", "Authentication")
         </div>
     </body>
+}
+
+@foreach (var i in Model)
+{
+    <div>
+        <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a>
+        <img src="~/fonts/@i.ProductImage" height="150" width="150" />
+    </div>
 }

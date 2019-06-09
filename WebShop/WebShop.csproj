@@ -208,6 +208,7 @@
     <Content Include="Views\Catalog\CategoryView.cshtml" />
     <Content Include="Views\Catalog\ProductView.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Catalog\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

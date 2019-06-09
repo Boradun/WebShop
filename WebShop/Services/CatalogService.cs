@@ -30,7 +30,7 @@ namespace WebShop.Services
                 if (i.ProductCategory.Equals(Name))
                     result.Add(new CatalogOneCategoryModel()
                     {
-                        ProductImage=i.ProductImage,
+                        ProductImage = i.ProductImage,
                         ProductName = i.ProductName,
                         ProductPrice = i.ProductPrice
                     });
@@ -52,6 +52,27 @@ namespace WebShop.Services
                 _item.ProductQuantity -= productToUpdate.ProductQuantity;
                 _shopRepository.Update(_item);
             }
+        }
+
+        public List<Product> Search(string value)
+        {
+            List<Product> _list = _shopRepository.GetAll().Where(x =>
+              x.ProductCategory.Contains(value) ||
+              x.ProductDescription.Contains(value) ||
+              x.ProductName.Contains(value)).ToList();
+            return _list;
+        }
+
+        public List<Product> GetRandomList()
+        {
+            var _list = _shopRepository.GetAll();
+            Random random = new Random();
+            List<Product> resultList = new List<Product>();
+            for (int i = 0; i < 6; i++)
+            {
+                resultList.Add(_list[random.Next(_list.Count)]);
+            }
+            return resultList;
         }
     }
 }
