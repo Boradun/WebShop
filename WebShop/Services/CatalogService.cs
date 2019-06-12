@@ -68,7 +68,7 @@ namespace WebShop.Services
             var _list = _shopRepository.GetAll();
             Random random = new Random();
             List<Product> resultList = new List<Product>();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 12; i++)
             {
                 resultList.Add(_list[random.Next(_list.Count)]);
             }

@@ -6,7 +6,32 @@
     #menu {
         position: absolute;
         top: 100px;
-        right: 20%;
+        right: 0%;
+        width: 10%;
+    }
+
+    .displayed_item {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+    .item {
+        width: 190px;
+        height: 250px;
+        padding-top: 20px;
+        border: double;
+    }
+
+    .image {
+        height: 150px;
+        width: 180px;
+        padding-left:1%;
+    }
+
+    .link {
+        padding-bottom:10px;
+        padding-left:10px;
     }
 </style>
 @if (User.Identity.IsAuthenticated)
@@ -28,10 +53,13 @@ else
     </body>
 }
 
-@foreach (var i in Model)
-{
-    <div>
-        <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a>
-        <img src="~/fonts/@i.ProductImage" height="150" width="150" />
-    </div>
-}
+<div class="displayed_item">
+    @foreach (var i in Model)
+    {
+        <div class="item">
+            <img src="~/fonts/@i.ProductImage" class="image" />
+            <a href="/Catalog/ProductView?ProductName=@i.ProductName" class="link">@i.ProductName</a>
+
+        </div>
+    }
+</div>

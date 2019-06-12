@@ -4,23 +4,29 @@
     ViewBag.Title = "View";
 }
 
+<style type="text/css">
+    .product{
+        margin-top:20px;
+    }
+</style>
+
 @if (Model != null)
 {
     using (Html.BeginForm("Buy", "Order", FormMethod.Post))
     {
-        <div>
+        <div class="product">
             <img src="~/fonts/@Model.ProductImage" height="200" width="200" />
             <ul>
                 <li>Название: @Model.ProductName</li>
                 @Html.HiddenFor(x => x.ProductName)
-                <li>Категория товар: @Model.ProductCategory</li>
+                <li>Категория товара: @Model.ProductCategory</li>
                 @Html.HiddenFor(x => x.ProductCategory)
                 <li>Цена: @Model.ProductPrice</li>
                 @Html.HiddenFor(x => x.ProductPrice)
                 <li>Описание: @Model.ProductDescription</li>
                 @Html.HiddenFor(x => x.ProductDescription)
                 <li>
-                    Количество:
+                    Количество на складе:
                     @if (Model.ProductQuantity > 0)
                     {
                         @Model.ProductQuantity

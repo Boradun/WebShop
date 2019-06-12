@@ -2,10 +2,15 @@
 @{
     ViewBag.Title = "Category";
 }
-
+<style type="text/css">
+    .product{
+        border:dashed;
+        width:200px;
+    }
+</style>
 @foreach (var i in Model)
 {
-    <div>
+    <div class="product" href="/Catalog/ProductView?ProductName=@i.ProductName">
         <img src="~/fonts/@i.ProductImage" height="150" width="150" />
         <ul>
             <li>Название: <a href="/Catalog/ProductView?ProductName=@i.ProductName">@i.ProductName</a></li>
